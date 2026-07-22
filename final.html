@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:linear-gradient(135deg,#ff7eb3,#ff4d88);
+overflow:hidden;
+}
+
+.box{
+background:rgba(255,255,255,.9);
+padding:30px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 0 20px pink;
+width:90%;
+max-width:350px;
+}
+
+h1{
+color:#ff1493;
+margin-bottom:20px;
+}
+
+p{
+font-size:20px;
+color:#444;
+line-height:1.7;
+}
+
+.emoji{
+position:fixed;
+top:-40px;
+font-size:24px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-40px);
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h1>🩷 Thank You 🩷</h1>
+
+<p>
+Thank You So Much ❤️<br><br>
+I Hope You Liked My Surprise 🥺🫀<br><br>
+Stay Happy Forever 🌸🌹
+</p>
+
+</div>
+
+<script>
+
+const emojis=["🩷","🫀","🌸","🌹"];
+
+setInterval(()=>{
+
+let e=document.createElement("div");
+
+e.className="emoji";
+
+e.innerHTML=emojis[Math.floor(Math.random()*4)];
+
+e.style.left=Math.random()*100+"vw";
+
+e.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(e);
+
+setTimeout(()=>{
+
+e.remove();
+
+},6000);
+
+},250);
+
+</script>
+
+</body>
+</html>
