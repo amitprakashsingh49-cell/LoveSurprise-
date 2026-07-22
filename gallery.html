@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Memories ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#ffd6e7;
+overflow-x:auto;
+overflow-y:hidden;
+}
+
+.slider{
+display:flex;
+width:700vw;
+height:100vh;
+scroll-snap-type:x mandatory;
+overflow-x:scroll;
+scroll-behavior:smooth;
+}
+
+.page{
+min-width:100vw;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+scroll-snap-align:start;
+position:relative;
+}
+
+.page img,.page video{
+width:90%;
+height:90%;
+object-fit:contain;
+border-radius:20px;
+box-shadow:0 0 20px pink;
+}
+
+.emoji{
+position:fixed;
+top:-50px;
+font-size:25px;
+animation:fall linear forwards;
+pointer-events:none;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px);
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="slider">
+
+<div class="page"><img src="images/page1.png"></div>
+
+<div class="page"><img src="images/page2.png"></div>
+
+<div class="page"><img src="images/page3.png"></div>
+
+<div class="page"><img src="images/page4.png"></div>
+
+<div class="page">
+<video controls autoplay muted>
+<source src="videos/video1.mp4" type="video/mp4">
+</video>
+</div>
+
+<div class="page">
+<video controls>
+<source src="videos/video2.mp4" type="video/mp4">
+</video>
+</div>
+
+<div class="page">
+<video controls>
+<source src="videos/video3.mp4" type="video/mp4">
+</video>
+</div>
+
+</div>
+
+<script>
+
+const emojis=["🩷","🫀","🌸","🌹"];
+
+setInterval(()=>{
+
+let e=document.createElement("div");
+
+e.className="emoji";
+
+e.innerHTML=emojis[Math.floor(Math.random()*4)];
+
+e.style.left=Math.random()*100+"vw";
+
+e.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(e);
+
+setTimeout(()=>{
+
+e.remove();
+
+},6000);
+
+},250);
+
+</script>
+
+</body>
+</html>
